@@ -1,9 +1,18 @@
 import React from "react"
-import AuthForm from "../modules/AuthForm/AuthForm";
+import {RegistrationSwitch, RegistrationPrimaryArea, RegistrationForm, RegistrationLayout, RegistrationAside} from "../modules/RegistrationForm/"
 
 const Auth: React.FC = () => {
     return (
-        <AuthForm />
+        <RegistrationLayout>
+            <RegistrationSwitch />
+            <RegistrationAside />
+            <RegistrationPrimaryArea>
+                <RegistrationForm isLogin={true} />
+            </RegistrationPrimaryArea>
+            <RegistrationPrimaryArea>
+                <RegistrationForm isLogin={false} />
+            </RegistrationPrimaryArea>
+        </RegistrationLayout>
     )
 }
 

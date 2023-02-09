@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import {RouteNames} from "../router";
-import logo from "../assets/logo.svg"
+import whiteLogo from "../assets/logo_white.svg"
+import React from "react";
 
 const StyledLogo = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
-  
-  color: var(--primary-text);
+  height: 100%;
+  gap: 20px;
   
   img {
     max-width: 50px;
@@ -16,9 +16,7 @@ const StyledLogo = styled.div`
   
   h1 {
     font-size: 25px;
-    span {
-      color: var(--accent-color);
-    }
+    color: #fff;
   }
 `
 
@@ -26,7 +24,7 @@ const Logo = () => {
     return (
         <Link to={RouteNames.DISK}>
             <StyledLogo>
-                <img src={logo} alt="hard drive" />
+                <img src={whiteLogo} alt="hard drive" />
                 <h1><span>Cloud</span> Drive</h1>
             </StyledLogo>
         </Link>

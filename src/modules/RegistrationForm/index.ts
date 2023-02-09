@@ -1,0 +1,7 @@
+export {userReducer} from "./store/store"
+export {RegistrationForm} from "./components/RegistrationForm/RegistrationForm"
+export {RegistrationLayout} from "./ui/RegistrationLayout"
+export {RegistrationAside} from "./components/RegistrationAside/RegistrationAside"
+export {RegistrationPrimaryArea} from "./ui/RegistrationPrimaryArea"
+export {RegistrationSwitch} from "./components/RegistrationSwitch/RegistrationSwitch"
+export {verify, logout} from "./store/actions"

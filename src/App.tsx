@@ -1,22 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import Router from "./components/router/Router";
-import userAPIService from "./services/userAPIService";
-import {login} from "./store/slices/ActionCreators";
-function App() {
+import {useAppSelector} from "./hooks/useAppSelector";
+import {useAppDispatch} from "./hooks/useAppDispatch";
+import Spinner from "./ui/Spinner";
+import {verify} from "./modules/RegistrationForm/index"
 
-    const [isLoading, setIsLoading] = useState(true)
+function App() {
+  const {isLoading} = useAppSelector(state => state.userReducer)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    userAPIService.checkAuth()
-        .then(response => {
-            console.log(response)
-            login(response)
-        }).finally(() => setIsLoading(false))
-  }, [ ])
+    dispatch(verify())
+  }, [])
 
-    if (isLoading) {
-        return <div>Loading</div>
-    }
+  if (isLoading) return <Spinner />
 
   return (
       <Router />

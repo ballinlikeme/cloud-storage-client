@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 * {
     padding: 0;
@@ -10,19 +12,18 @@
     --primary-background: #fff;
     --primary-text: #000;
     --application-family: "Roboto", sans-serif;
+    --accent-family: "Inter", sans-serif;
     --application-background: #a6a6a6;
-    --accent-color: royalblue;
+    --accent-color: #84DCCF;
 }
 
 body {
     height: 100vh;
     overflow: auto;
 
-    background-color: var(--application-background);
     font-family: var(--application-family);
     font-weight: 400;
 
-    padding-bottom: 20px;
 }
 
 a, a:visited {

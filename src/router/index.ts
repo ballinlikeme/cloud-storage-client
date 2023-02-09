@@ -9,20 +9,14 @@ export interface IRoute {
 }
 
 export enum RouteNames {
-    LOGIN = '/login',
-    REGISTRATION = '/registration',
+    AUTH = '/auth',
     DISK = '/'
 }
 
 export const PUBLIC_ROUTES: IRoute[] = [
     {
         id: 0,
-        path: RouteNames.LOGIN,
-        Component: Auth
-    },
-    {
-        id: 1,
-        path: RouteNames.REGISTRATION,
+        path: RouteNames.AUTH,
         Component: Auth
     }
 ]

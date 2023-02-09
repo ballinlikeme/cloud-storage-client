@@ -1,8 +1,10 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import userReducer from "./slices/UserSlice"
+import {userReducer} from "../modules/RegistrationForm"
+import {filesReducer} from "../modules/FilesList"
 
 const rootReducer = combineReducers({
-    userReducer
+    userReducer,
+    filesReducer
 })
 
 export const store = configureStore({

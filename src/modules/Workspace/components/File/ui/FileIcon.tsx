@@ -6,10 +6,14 @@ interface Props {
     type: string;
 }
 
-const FileIcon: React.FC = () => {
+const FileIcon: React.FC<Props> = ({type}) => {
 
     return (
-        <img width={50} src={file} alt="file" />
+        <img
+            width={50}
+            src={type === "dir" ? folder : file}
+            alt="file"
+        />
     );
 };
 

@@ -3,7 +3,7 @@ import Wrapper from "./ui/Wrapper";
 import Container from "../../ui/Container";
 import Flex from "../../ui/Flex";
 import Layout from "./ui/Layout";
-import FilesList from "./components/FilesList/FilesList";
+// import FilesList from "./components/FilesList/FilesList";
 import ToolBar from "./components/ToolBar/ToolBar";
 const Workspace = () => {
     return (
@@ -12,7 +12,7 @@ const Workspace = () => {
                 <Flex gap={20}>
                     <Layout flex="1 1 auto">
                         <ToolBar />
-                        <FilesList />
+                        {/*<FilesList />*/}
                     </Layout>
                     <Layout flex="0 1 30%">
                         USER PROFILE
