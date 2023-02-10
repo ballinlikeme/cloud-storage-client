@@ -1,5 +1,5 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {IFile} from "../models/IFile";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IFile } from "../models/IFile";
 
 type directoryType = IFile | null
 
@@ -11,6 +11,7 @@ interface FileState {
     folderPopUpVisibility: boolean;
     filePopUpVisibility: boolean;
     dirStack: directoryType[];
+    filesToDisplay: IFile[]
 }
 
 const initialState: FileState = {
@@ -20,16 +21,20 @@ const initialState: FileState = {
     errors: [],
     folderPopUpVisibility: false,
     filePopUpVisibility: false,
-    dirStack: []
+    dirStack: [],
+    filesToDisplay: []
 }
 
 const filesSlice = createSlice({
     name: "files",
     initialState,
     reducers: {
+        setFilesToDisplay(state, action: PayloadAction<IFile[]>) {
+            state.filesToDisplay = action.payload
+        },
 
         addNewFile(state, action: PayloadAction<IFile>) {
-          state.files.push(action.payload)
+            state.files.push(action.payload)
         },
 
         setCurrentDir(state, action: PayloadAction<directoryType>) {
@@ -75,5 +80,5 @@ const filesSlice = createSlice({
     }
 })
 
-export const {deleteFile, addNewFile, setCurrentDir, fetchFiles, fetchFilesSuccess, fetchFilesError, toggleFilePopUp, toggleFolderPopUp, addToStack, deleteFromStack} = filesSlice.actions
+export const { setFilesToDisplay, deleteFile, addNewFile, setCurrentDir, fetchFiles, fetchFilesSuccess, fetchFilesError, toggleFilePopUp, toggleFolderPopUp, addToStack, deleteFromStack } = filesSlice.actions
 export const filesReducer = filesSlice.reducer
