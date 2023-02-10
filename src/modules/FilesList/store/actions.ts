@@ -1,10 +1,9 @@
-import {addNewFile, deleteFile, fetchFiles, fetchFilesError, fetchFilesSuccess} from "./store"
-import {AppDispatch} from "../../../store/store";
-import {apiService} from "../api/apiService";
-import {AxiosError} from "axios";
-import {CreateDir} from "../models/CreateDir";
-import {UploadFile} from "../models/UploadFile";
-import file from "../../Workspace/components/File/File";
+import { addNewFile, deleteFile, fetchFiles, fetchFilesError, fetchFilesSuccess } from "./store"
+import { AppDispatch } from "../../../store/store";
+import { apiService } from "../api/apiService";
+import { AxiosError } from "axios";
+import { CreateDir } from "../models/CreateDir";
+import { UploadFile } from "../models/UploadFile";
 
 export const getFiles = (userId: number, parentId: number | null) => async (dispatch: AppDispatch) => {
     try {
@@ -40,7 +39,7 @@ export const uploadFile = (dto: UploadFile) => async (dispatch: AppDispatch) => 
 
         const newFile = await apiService.uploadFile(formData)
         dispatch(addNewFile(newFile))
-    } catch (e) {
+    } catch (e: AxiosError | any) {
         console.log(e)
     }
 }
@@ -50,7 +49,7 @@ export const removeFile = (id: number) => async (dispatch: AppDispatch) => {
         dispatch(fetchFiles())
         const file = await apiService.deleteFile(id)
         dispatch(deleteFile(file.id))
-    } catch (e) {
+    } catch (e: AxiosError | any) {
         console.log(e)
     }
 }

@@ -1,19 +1,23 @@
-import React from "react"
-import {RegistrationSwitch, RegistrationPrimaryArea, RegistrationForm, RegistrationLayout, RegistrationAside} from "../modules/RegistrationForm/"
+import React from "react";
+import { AuthForm } from "../components/pages/AuthPage";
 
 const Auth: React.FC = () => {
-    return (
-        <RegistrationLayout>
-            <RegistrationSwitch />
-            <RegistrationAside />
-            <RegistrationPrimaryArea>
-                <RegistrationForm isLogin={true} />
-            </RegistrationPrimaryArea>
-            <RegistrationPrimaryArea>
-                <RegistrationForm isLogin={false} />
-            </RegistrationPrimaryArea>
-        </RegistrationLayout>
-    )
-}
+  return (
+    <div
+      style={{
+        height: "100vh",
+        width: "100vw",
+        overflow: "hidden",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div style={{ width: 500 }}>
+        <AuthForm />
+      </div>
+    </div>
+  );
+};
 
-export default Auth
+export default Auth;
