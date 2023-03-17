@@ -1,16 +1,26 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {login, register} from "../../store/actions"
-import {RegistrationWrapper} from "../../ui/RegistrationWrapper";
-import {RegistrationTitle} from "../../ui/RegistrationTitle";
-import {RegistrationField} from "../RegistrationField/RegistrationField";
+// import {RegistrationWrapper} from "../../ui/RegistrationWrapper";
+// import {RegistrationTitle} from "../../ui/RegistrationTitle";
+// import {RegistrationField} from "../RegistrationField/RegistrationField";
 import {Navigate} from "react-router";
 import {RouteNames} from "../../../../router";
-import Flex from "../../../../ui/Flex";
+// import Flex from "../../../../ui/Flex";
 import {useAppDispatch} from "../../../../hooks/useAppDispatch";
 import {useAppSelector} from "../../../../hooks/useAppSelector";
 import Spinner from "../../../../ui/Spinner";
-import {Button} from "../../../../ui/Button";
-import {RegistrationErrorsArea} from "../RegistrationErrorsArea/RegistrationErrorsArea";
+// import {Button} from "../../../../ui/Button";
+// import {RegistrationErrorsArea} from "../RegistrationErrorsArea/RegistrationErrorsArea";
+// import { StyledWrapper } from '../../ui/StyledWrapper';
+// import { StyledForm } from '../../ui/StyledForm';
+// import { Input } from '../../../../ui/Input';
+// import { StyledHeader } from '../../ui/StyledHeader';
+// import { StyledTitle } from '../../ui/StyledTitle';
+// import { StyledBody } from '../../ui/StyledBody';
+import { RegistrationHeader } from '../RegistrationHeader/RegistrationHeader';
+import { RegistrationBody } from '../RegistrationBody/RegistrationBody';
+import { RegistrationLayout } from '../RegistrationLayout/RegistrationLayout';
+import { RegistrationFooter } from '../RegistrationFooter/RegistrationFooter';
 
 interface RegistrationFormProps {
     isLogin: boolean;
@@ -55,39 +65,45 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({isLogin}) => 
     if (isAuth) return <Navigate to={RouteNames.DISK} />
 
     return (
-        <RegistrationWrapper>
-            <RegistrationTitle>{isLogin ? "Log in" : "Register"}</RegistrationTitle>
-            <RegistrationField
-                ref={emailRef}
-                type="text"
-                fieldName="Email"
-                value={email}
-                setValue={setEmail}
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            />
-            <RegistrationField
-                ref={passwordRef}
-                type="password"
-                fieldName="Password"
-                value={password}
-                setValue={setPassword}
-                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{5,16}$"
-            />
-            {!isLogin &&
-                <RegistrationField
-                    ref={nameRef}
-                    type="text"
-                    fieldName="Name"
-                    value={name}
-                    setValue={setName}
-                    pattern="[A-Za-z]{2,32}"
-                />
-            }
-            <RegistrationErrorsArea />
-            <Flex gap={10}>
-                <Button width="100%" disabled={disabled} onClick={submit} primary>{isLogin ? "Log in" : "Register"}</Button>
-            </Flex>
-        </RegistrationWrapper>
+        // <RegistrationWrapper>
+        //     <RegistrationTitle>{isLogin ? "Log in" : "Register"}</RegistrationTitle>
+        //     <RegistrationField
+        //         ref={emailRef}
+        //         type="text"
+        //         fieldName="Email"
+        //         value={email}
+        //         setValue={setEmail}
+        //         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        //     />
+        //     <RegistrationField
+        //         ref={passwordRef}
+        //         type="password"
+        //         fieldName="Password"
+        //         value={password}
+        //         setValue={setPassword}
+        //         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{5,16}$"
+        //     />
+        //     {!isLogin &&
+        //         <RegistrationField
+        //             ref={nameRef}
+        //             type="text"
+        //             fieldName="Name"
+        //             value={name}
+        //             setValue={setName}
+        //             pattern="[A-Za-z]{2,32}"
+        //         />
+        //     }
+        //     <RegistrationErrorsArea />
+        //     <Flex gap={10}>
+        //         <Button width="100%" disabled={disabled} onClick={submit} primary>{isLogin ? "Log in" : "Register"}</Button>
+        //     </Flex>
+        // </RegistrationWrapper>
+        <RegistrationLayout>
+            <RegistrationHeader />
+            <RegistrationBody />
+            <RegistrationFooter />
+        </RegistrationLayout>
+        
     );
 };
 

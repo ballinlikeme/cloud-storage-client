@@ -8,7 +8,7 @@ interface RegistrationFieldProps {
     value: string;
     setValue: Function;
     type: string;
-    pattern?: string;
+    pattern: string;
 }
 
 export const RegistrationField = React.forwardRef<HTMLInputElement, React.PropsWithRef<RegistrationFieldProps>>( ({pattern, fieldName, value, setValue, type}, ref) => {
