@@ -23,7 +23,7 @@ export const Button = styled.button<RegistrationButtonProps>`
   font-weight: 600;
 
   &:hover {
-    background-color: #d2eae4;
+    background-color: var(--accent-color);
   }
 
   ${props => props.primary && css`
@@ -31,8 +31,13 @@ export const Button = styled.button<RegistrationButtonProps>`
     color: #fff;
 
     &:hover {
-      background-color: #a9e8dd;
-      border-color: #a9e8dd;
+      background-color: var(--accent-color-hover);
+      border-color: var(--accent-color-hover);
+    }
+
+    &:active {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
     }
 
     &:disabled {
