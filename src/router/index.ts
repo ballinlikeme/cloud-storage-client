@@ -1,6 +1,7 @@
 import Auth from "../pages/Auth";
 import Disk from "../pages/Disk";
 import React from "react";
+import { SignUpPage } from "../pages/SignUpPage";
 
 export interface IRoute {
     id: number;
@@ -9,15 +10,16 @@ export interface IRoute {
 }
 
 export enum RouteNames {
-    AUTH = '/auth',
-    DISK = '/'
+    REGISTRATION = '/registration',
+    DISK = '/',
+    AUTH='/auth'
 }
 
 export const PUBLIC_ROUTES: IRoute[] = [
     {
         id: 0,
-        path: RouteNames.AUTH,
-        Component: Auth
+        path: RouteNames.REGISTRATION,
+        Component: SignUpPage
     }
 ]
 
