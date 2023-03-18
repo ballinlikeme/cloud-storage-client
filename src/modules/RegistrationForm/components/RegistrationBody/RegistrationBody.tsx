@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react"
 import { StyledBody } from "../../ui/StyledBody"
 import { Button } from "../../../../ui/Button"
-import { RegistrationInput } from "../RegistrationInput/RegistrationInput"
+import { AuthInput } from "../AuthInput/AuthInput"
+import { AuthButton } from "../AuthButton/AuthButton"
 
 export const RegistrationBody: React.FC = () => {
 
@@ -26,7 +27,7 @@ export const RegistrationBody: React.FC = () => {
 
     return (
         <StyledBody>
-            <RegistrationInput
+            <AuthInput
                 name="Email"
                 value={email}
                 setValue={setEmail}
@@ -35,7 +36,7 @@ export const RegistrationBody: React.FC = () => {
                 title="Enter your real email address including local-part, @ symbol and domain name."
                 ref={emailRef}
             />
-            <RegistrationInput 
+            <AuthInput 
                 name="Password"
                 value={password}
                 setValue={setPassword}
@@ -44,12 +45,7 @@ export const RegistrationBody: React.FC = () => {
                 title="At least 5 symbols including upper and lowercase letters and numbers."
                 ref={passRef}
             />
-            <Button 
-                disabled={disabled} 
-                primary
-            >
-                Sign Up
-            </Button>
+            <AuthButton disabled={disabled} onClick={submit} />
         </StyledBody>
     )
 }

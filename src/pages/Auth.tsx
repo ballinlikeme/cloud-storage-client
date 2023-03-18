@@ -1,18 +1,18 @@
 import React from "react"
-import {RegistrationSwitch, RegistrationPrimaryArea, RegistrationForm, RegistrationLayout, RegistrationAside} from "../modules/RegistrationForm/"
+import { RegistrationForm} from "../modules/RegistrationForm/"
 
 const Auth: React.FC = () => {
     return (
-        <RegistrationLayout>
-            <RegistrationSwitch />
-            <RegistrationAside />
-            <RegistrationPrimaryArea>
-                <RegistrationForm isLogin={true} />
-            </RegistrationPrimaryArea>
-            <RegistrationPrimaryArea>
-                <RegistrationForm isLogin={false} />
-            </RegistrationPrimaryArea>
-        </RegistrationLayout>
+        // <RegistrationLayout>
+            // {/* <RegistrationSwitch /> */}
+            // {/* <RegistrationAside /> */}
+            // {/* <RegistrationPrimaryArea> */}
+            <RegistrationForm />
+            // {/* </RegistrationPrimaryArea> */}
+            // {/* <RegistrationPrimaryArea> */}
+                // {/* <RegistrationForm isLogin={false} /> */}
+            // {/* </RegistrationPrimaryArea> */}
+        // {/* </RegistrationLayout> */}
     )
 }
 

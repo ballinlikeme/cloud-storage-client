@@ -12,7 +12,7 @@ interface InputProps {
     setValue: React.Dispatch<React.SetStateAction<string>>
 }
 
-export const RegistrationInput = React.forwardRef<HTMLInputElement, React.PropsWithRef<InputProps>>(({name, value, setValue, type, pattern, title}, ref) => {
+export const AuthInput = React.forwardRef<HTMLInputElement, React.PropsWithRef<InputProps>>(({name, value, setValue, type, pattern, title}, ref) => {
     return (
         <Flex direction="column" gap={10}>
             <StyledLabel htmlFor={name}>{name}</StyledLabel>
