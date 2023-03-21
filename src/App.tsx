@@ -1,22 +1,13 @@
-import React, {useEffect} from 'react';
 import Router from "./components/router/Router";
-import {useAppSelector} from "./hooks/useAppSelector";
-import {useAppDispatch} from "./hooks/useAppDispatch";
-import Spinner from "./ui/Spinner";
-import {verify} from "./modules/RegistrationForm/index"
+import { useVerifyQuery } from "./modules/RegistrationForm"
 
 function App() {
-  const {isLoading} = useAppSelector(state => state.userReducer)
-  const dispatch = useAppDispatch()
+  const { isLoading } = useVerifyQuery(undefined)
 
-  useEffect(() => {
-    dispatch(verify())
-  }, [])
-
-  if (isLoading) return <Spinner />
+  if (isLoading) return <h1>Loading...</h1>
 
   return (
-      <Router />
+    <Router />
   );
 }
 

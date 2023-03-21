@@ -1,4 +1,3 @@
-import Auth from "../pages/Auth";
 import Disk from "../pages/Disk";
 import React from "react";
 import { SignUpPage } from "../pages/SignUpPage";
@@ -13,8 +12,8 @@ export interface IRoute {
 export enum RouteNames {
     REGISTRATION = '/registration',
     DISK = '/',
-    LOGIN="/login",
-    AUTH='/auth'
+    LOGIN = "/login",
+    AUTH = '/auth'
 }
 
 export const PUBLIC_ROUTES: IRoute[] = [

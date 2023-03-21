@@ -1,20 +1,17 @@
 import React from 'react';
-import {HeaderWrapper} from "../../ui/HeaderWrapper";
+import { HeaderWrapper } from "../../ui/HeaderWrapper";
 import Container from "../../../../ui/Container";
 import Logo from "../../../../ui/Logo";
 import Flex from "../../../../ui/Flex";
-import {HeaderButton} from "../../ui/HeaderButton";
-import {logout} from "../../../RegistrationForm/"
-import {useAppDispatch} from "../../../../hooks/useAppDispatch";
+import { HeaderButton } from "../../ui/HeaderButton";
 
-export const Header = () => {
-    const dispatch = useAppDispatch()
+export const Header: React.FC = () => {
     return (
         <HeaderWrapper>
             <Container>
                 <Flex justify="space-between" align="center">
                     <Logo />
-                    <HeaderButton onClick={() => dispatch(logout())}>Logout</HeaderButton>
+                    <HeaderButton>Logout</HeaderButton>
                 </Flex>
             </Container>
         </HeaderWrapper>

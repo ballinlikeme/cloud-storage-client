@@ -1,29 +1,38 @@
 import React, { useState, useRef, useEffect } from "react"
 import { StyledBody } from "../../ui/StyledBody"
-import { Button } from "../../../../ui/Button"
 import { AuthInput } from "../AuthInput/AuthInput"
 import { AuthButton } from "../AuthButton/AuthButton"
+import { AuthError } from "../AuthError/AuthError"
+import { useRegisterMutation } from "../../api"
 
 export const RegistrationBody: React.FC = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
     const [disabled, setDisabled] = useState(false)
 
     const emailRef = useRef<HTMLInputElement>(null)
     const passRef = useRef<HTMLInputElement>(null)
 
-    const submit = (event: React.MouseEvent) => {
-        event.preventDefault()
+    const [register, { isError, isLoading }] = useRegisterMutation()
 
+    const submit = async (event: React.MouseEvent) => {
+        event.preventDefault()
+        await register({ email, password })
+            .unwrap()
+            .catch(error => setError(error.data.message))
     }
 
     useEffect(() => {
+        setError('')
         setDisabled(
             !passRef.current?.checkValidity()
             || !emailRef.current?.checkValidity()
         )
     }, [email, password])
+
+    if (isLoading) return <h1>Loading...</h1>
 
     return (
         <StyledBody>
@@ -36,7 +45,7 @@ export const RegistrationBody: React.FC = () => {
                 title="Enter your real email address including local-part, @ symbol and domain name."
                 ref={emailRef}
             />
-            <AuthInput 
+            <AuthInput
                 name="Password"
                 value={password}
                 setValue={setPassword}
@@ -45,7 +54,8 @@ export const RegistrationBody: React.FC = () => {
                 title="At least 5 symbols including upper and lowercase letters and numbers."
                 ref={passRef}
             />
-            <AuthButton disabled={disabled} onClick={submit} />
+            {isError && error && <AuthError error={error} />}
+            <AuthButton title="Sing Up" disabled={disabled} onClick={submit} />
         </StyledBody>
     )
 }

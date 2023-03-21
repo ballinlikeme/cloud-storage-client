@@ -4,7 +4,7 @@ import { useAppSelector } from "../../../../hooks/useAppSelector"
 import { useAppDispatch } from "../../../../hooks/useAppDispatch"
 import { setFilesToDisplay } from "../../store/store"
 
-export const Filter = () => {
+export const Filter: React.FC = () => {
      const [filter, setFilter] = useState('')
      const { files } = useAppSelector(state => state.filesReducer)
      const dispatch = useAppDispatch()

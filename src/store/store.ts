@@ -1,14 +1,16 @@
-import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {userReducer} from "../modules/RegistrationForm"
-import {filesReducer} from "../modules/FilesList"
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { authApi, userReducer } from "../modules/RegistrationForm"
+import { filesReducer } from "../modules/FilesList"
 
 const rootReducer = combineReducers({
     userReducer,
-    filesReducer
+    filesReducer,
+    [authApi.reducerPath]: authApi.reducer,
 })
 
 export const store = configureStore({
-    reducer: rootReducer
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(authApi.middleware)
 })
 
 export type AppDispatch = typeof store.dispatch
