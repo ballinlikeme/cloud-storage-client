@@ -13,10 +13,11 @@ interface FileProps {
 export const FileProperies: React.FC<FileProps> = ({ file }) => {
      return (
           <>
+               <FileProperty start={3}>{bytesToKiloBytes(file.size)}{file.type.toUpperCase()} file</FileProperty>
                <FileDownload file={file} />
                <FileDelete id={file.id} />
-               <FileProperty start={5}>{bytesToKiloBytes(file.size)} KB</FileProperty>
-               <FileProperty start={6}>{getLastModifiedTime(file.updatedAt)}</FileProperty>
+               <FileProperty start={6}>{bytesToKiloBytes(file.size)} KB</FileProperty>
+               <FileProperty start={7}>{getLastModifiedTime(file.updatedAt)}</FileProperty>
           </>
      )
 }

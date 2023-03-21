@@ -8,8 +8,8 @@ interface RequireAuthProps {
 }
 
 const RequireAuth: React.FC<RequireAuthProps> = ({ children }) => {
-    const { isAuth } = useAppSelector(state => state.userReducer)
-
+    // const { isAuth } = useAppSelector(state => state.userReducer)
+    const isAuth = true
     if (!isAuth) return <Navigate to={RouteNames.LOGIN} />
 
     return children;

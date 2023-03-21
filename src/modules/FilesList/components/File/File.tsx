@@ -7,6 +7,7 @@ import { useAppDispatch } from "../../../../hooks/useAppDispatch";
 import { addToStack, setCurrentDir } from "../../store/store";
 import { useAppSelector } from "../../../../hooks/useAppSelector";
 import { FileProperies } from './FileProperties';
+import { StyledList } from '../../ui/StyledList';
 
 interface FileProps {
     file: IFile
@@ -25,10 +26,10 @@ export const File: React.FC<FileProps> = ({ file }) => {
     };
 
     return (
-        <FileWrapper onClick={handleDirChange}>
+        <StyledList onClick={handleDirChange}>
             <FileIcon type={file.type} />
             <FileName>{file.name}</FileName>
             <FileProperies file={file} />
-        </FileWrapper>
+        </StyledList>
     )
 }

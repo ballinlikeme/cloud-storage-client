@@ -1,14 +1,15 @@
 import React from 'react';
-import Flex from "../../../../ui/Flex";
-import {FilesListHeaderWrapper} from "../../ui/FilesListHeaderWrapper";
-import {FilesListHeaderItem} from "../../ui/FilesListHeaderItem";
+import Flex from '../../../../ui/Flex';
+import { ListTitle } from '../../ui/ListTitle';
+import { StyledList } from '../../ui/StyledList';
 
-export const FilesListHeader = () => {
+export const FilesListHeader: React.FC = () => {
     return (
-        <FilesListHeaderWrapper>
-            <FilesListHeaderItem>Name</FilesListHeaderItem>
-            <FilesListHeaderItem>Size</FilesListHeaderItem>
-            <FilesListHeaderItem>Modified</FilesListHeaderItem>
-        </FilesListHeaderWrapper>
+        <StyledList>
+            <ListTitle start={2}>Name</ListTitle>
+            <ListTitle start={3} justify="center">Type</ListTitle>
+            <ListTitle start={6} justify="center">Size</ListTitle>
+            <ListTitle start={7} justify="center">Modified</ListTitle>
+        </StyledList>
     );
 };

@@ -1,18 +1,21 @@
 import React from "react"
-import {DashboardLayout} from "../ui/DashboardLayout";
-import {FilesList} from "../modules/FilesList";
-import Container from "../ui/Container";
-import {Header} from "../modules/Header"
+import { Header } from "../modules/Header"
+import { StyledMain } from "../ui/new/StyledMain";
+import { StyledWrapper } from "../ui/new/StyledWrapper";
+import { StyledLayout } from "../ui/new/StyledLayout";
+import { FilesList } from "../modules/FilesList";
 
 const Disk: React.FC = () => {
 
     return (
-        <DashboardLayout>
+        <StyledWrapper>
             <Header />
-            <Container>
-                <FilesList />
-            </Container>
-        </DashboardLayout>
+            <StyledLayout>
+                <StyledMain>
+                    <FilesList />
+                </StyledMain>
+            </StyledLayout>
+        </StyledWrapper>
     )
 }
 

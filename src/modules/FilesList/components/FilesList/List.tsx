@@ -4,6 +4,7 @@ import { useAppSelector } from "../../../../hooks/useAppSelector";
 import { getFiles } from "../../store/actions"
 import { useAppDispatch } from "../../../../hooks/useAppDispatch";
 import { File } from "../File/File";
+import { ListWrapper } from "../../ui/ListWrapper";
 
 export const List: React.FC = () => {
 
@@ -16,8 +17,12 @@ export const List: React.FC = () => {
      }, [currentDir, id, dispatch])
 
      return (
-          <>
-               {sortByType(filesToDisplay).map(file => <File file={file} key={file.id} />)}
-          </>
+          <ListWrapper>
+               {/* {sortByType(filesToDisplay).map(file => <File file={file} key={file.id} />)} */}
+               <div style={{ width: "100%" }}>1</div>
+               <div style={{ width: "100%" }}>1</div>
+               <div style={{ width: "100%" }}>1</div>
+               <div style={{ width: "100%" }}>1</div>
+          </ListWrapper>
      )
 }
