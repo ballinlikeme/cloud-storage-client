@@ -23,8 +23,7 @@ const signUpSchema = baseSchema.extend({
     .refine((name) => {
       const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
       return !format.test(name);
-    }, "Name must not contain any special characters")
-    .optional(),
+    }, "Name must not contain any special characters"),
   surname: z
     .string()
     .min(2, "Surname must be at least 2 characters long")
@@ -32,8 +31,7 @@ const signUpSchema = baseSchema.extend({
     .refine((surname) => {
       const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
       return !format.test(surname);
-    }, "Surname must not contain any special characters")
-    .optional(),
+    }, "Surname must not contain any special characters"),
 });
 
 export const authSchema = z.union([signInSchema, signUpSchema]);

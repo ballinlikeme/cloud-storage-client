@@ -1,22 +1,18 @@
 import React from "react";
 import { AuthForm } from "../components/pages/AuthPage";
+import { Background } from "../components/common/Background";
+import { Card, Flex } from "@chakra-ui/react";
 
 const Auth: React.FC = () => {
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100vw",
-        overflow: "hidden",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div style={{ width: 500 }}>
-        <AuthForm />
-      </div>
-    </div>
+    <>
+      <Background />
+      <Flex justify="center" align="center" height="100vh">
+        <Card width={500} padding={6}>
+          <AuthForm />
+        </Card>
+      </Flex>
+    </>
   );
 };
 
